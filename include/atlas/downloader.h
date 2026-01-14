@@ -2,7 +2,7 @@
 #define ATLAS_DOWNLOADER_H
 
 namespace atlas {
-    void downloader(const std::string& url);
+    void downloader(const std::string &url);
 }
 
 #endif //ATLAS_DOWNLOADER_H

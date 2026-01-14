@@ -4,11 +4,11 @@ project(Atlas LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
 add_executable(Atlas
         src/main.cpp
         src/parser.cpp
         src/downloader.cpp
-        include/atlas/downloader.h
 )
 
 target_include_directories(Atlas PRIVATE
@@ -19,3 +19,6 @@ target_compile_options(Atlas PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>:/W4>
         $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra>
 )
+
+find_package(CURL REQUIRED)
+target_link_libraries(Atlas PRIVATE CURL::libcurl)

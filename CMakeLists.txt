@@ -1,14 +1,19 @@
 cmake_minimum_required(VERSION 3.31.6)
-project(Atlas)
+project(Atlas LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(Atlas src/main.cpp
+add_executable(Atlas
+        src/main.cpp
         src/parser.cpp
-        include/atlas/parser.h)
+)
 
-target_include_directories(Atlas
-        PRIVATE
+target_include_directories(Atlas PRIVATE
         ${CMAKE_SOURCE_DIR}/include
+)
+
+target_compile_options(Atlas PRIVATE
+        $<$<CXX_COMPILER_ID:MSVC>:/W4>
+        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra>
 )

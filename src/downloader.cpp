@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ostream>
 #include <atlas/downloader.h>
 #include <curl/curl.h>
 

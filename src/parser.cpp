@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ostream>
-#include <atlas/Parser.h>
+#include <atlas/parser.h>
 
 namespace atlas {
     void parser(const int argc, char *argv[]) {

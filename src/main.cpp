@@ -1,5 +1,5 @@
 #include <iostream>
-#include <atlas/Parser.h>
+#include <atlas/parser.h>
 
 int main(const int argc, char **argv) {
     std::cout << "Welcome to Atlas!" << std::endl;

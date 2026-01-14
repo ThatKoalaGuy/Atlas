@@ -1,6 +1,8 @@
 #include <iostream>
 #include <atlas/parser.h>
 
+#include "atlas/downloader.h"
+
 int main(const int argc, char **argv) {
     std::cout << "Welcome to Atlas!" << std::endl;
 
@@ -9,7 +11,9 @@ int main(const int argc, char **argv) {
             throw std::invalid_argument("Usage: atlas <url>");
         }
 
-        atlas::parser(argc, argv);
+        const std::string url = atlas::parser(argc, argv);
+        atlas::downloader(url);
+
         return 0;
     } catch (std::invalid_argument &e) {
         std::cerr << e.what() << std::endl;

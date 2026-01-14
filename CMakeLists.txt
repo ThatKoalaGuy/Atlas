@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(Atlas
         src/main.cpp
         src/parser.cpp
+        src/downloader.cpp
+        include/atlas/downloader.h
 )
 
 target_include_directories(Atlas PRIVATE

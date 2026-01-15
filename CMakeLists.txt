@@ -20,5 +20,5 @@ target_compile_options(Atlas PRIVATE
         $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra>
 )
 
-find_package(CURL REQUIRED)
+find_package(CURL CONFIG REQUIRED)
 target_link_libraries(Atlas PRIVATE CURL::libcurl)

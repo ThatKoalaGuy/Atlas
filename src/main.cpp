@@ -1,10 +1,12 @@
 #include <iostream>
 #include <atlas/parser.h>
+#include <curl/curl.h>
 
 #include "atlas/downloader.h"
 
 int main(const int argc, char **argv) {
     std::cout << "Welcome to Atlas!" << std::endl;
+    curl_global_init(CURL_GLOBAL_ALL);
 
     try {
         if (argc < 2) {

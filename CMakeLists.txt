@@ -9,6 +9,8 @@ add_executable(Atlas
         src/main.cpp
         src/parser.cpp
         src/downloader.cpp
+        src/write_data.cpp
+        include/atlas/write_data.h
 )
 
 target_include_directories(Atlas PRIVATE

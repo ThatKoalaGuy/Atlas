@@ -6,15 +6,14 @@
 namespace atlas {
     //argc will be used later, do not delete!
     std::string parser(const int argc, char *argv[]) {
-
-            if (argv[1] == "--help"|| argv[1] == "-h") {
-                atlas::help();
-            }
-            else if (argv[1] == "--version" || argv[1] == "-v") {
-                std::cout << "Current version: \n"
-                "v1.0.0-alpha";
-            }
-
+        if (std::string(argv[1]) == "--help" || std::string(argv[1]) == "-h") {
+            atlas::help();
+            std::exit(0);
+        } else if (std::string(argv[1]) == "--version" || std::string(argv[1]) == "-v") {
+            std::cout << "Current version: \n"
+                    "v1.0.0-alpha";
+            std::exit(0);
+        }
 
         std::string urlInput = argv[1];
         if (!urlInput.starts_with("http://") && !urlInput.starts_with("https://")) {
@@ -44,10 +43,5 @@ namespace atlas {
         curl_url_cleanup(h);
 
         return url;
-
-
-
-
-
     }
 }

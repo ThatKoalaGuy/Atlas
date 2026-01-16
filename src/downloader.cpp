@@ -1,11 +1,11 @@
 #include <filesystem>
-#include <iostream>
 #include <atlas/downloader.h>
 #include <atlas/write_data.h>
+#include <atlas/filename_from_url.h>
 #include <curl/curl.h>
 
 namespace atlas {
-    static std::string filename_from_url(const std::string &url) {
+    std::string filename_from_url(const std::string &url) {
         // strip scheme
         std::string clean = url;
         if (const auto pos = clean.find("://"); pos != std::string::npos) {

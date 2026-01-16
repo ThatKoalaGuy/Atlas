@@ -5,7 +5,7 @@
 #include <curl/curl.h>
 
 namespace atlas {
-    static std::string filename_from_url(const std::string& url) {
+    static std::string filename_from_url(const std::string &url) {
         // strip scheme
         std::string clean = url;
         if (const auto pos = clean.find("://"); pos != std::string::npos) {
@@ -20,7 +20,7 @@ namespace atlas {
         // if path exists, use the last path segment
         auto slash = clean.find('/');
         if (slash == std::string::npos) {
-            // samo hostname → root
+            // only hostname → root
             return "index.html";
         }
 
@@ -37,15 +37,15 @@ namespace atlas {
         return name;
     }
 
-    void downloader(const std::string& url) {
-        CURL* curl = curl_easy_init();
+    void downloader(const std::string &url) {
+        CURL *curl = curl_easy_init();
         if (!curl) {
             throw std::runtime_error("curl_easy_init failed");
         }
 
         const std::string filename = filename_from_url(url);
 
-        FILE* fp = fopen(filename.c_str(), "wb");
+        FILE *fp = fopen(filename.c_str(), "wb");
         if (!fp) {
             curl_easy_cleanup(curl);
             throw std::runtime_error("failed to open file for writing");
@@ -65,5 +65,4 @@ namespace atlas {
             throw std::runtime_error(curl_easy_strerror(res));
         }
     }
-
 }

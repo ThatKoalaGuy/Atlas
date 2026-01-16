@@ -28,7 +28,6 @@ namespace atlas {
         }
 
         std::string url(out);
-        std::cout << url << std::endl;
 
         curl_free(out);
         curl_url_cleanup(h);

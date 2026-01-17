@@ -15,6 +15,8 @@ add_library(atlas_lib
         src/write_data.cpp
         src/command/help.cpp
         src/command/version.cpp
+        src/config/create_config.cpp
+        src/config/read_config.cpp
 )
 
 target_include_directories(atlas_lib PUBLIC
@@ -42,6 +44,8 @@ add_executable(atlas_tests
         tests/main.cpp
         tests/parser_tests.cpp
         tests/filename_from_url.cpp
+        tests/config_tests.cpp
+        tests/write_data_tests.cpp
 )
 
 # ---- CI ----

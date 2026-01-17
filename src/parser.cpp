@@ -3,15 +3,17 @@
 #include <atlas/parser.h>
 #include <atlas/command/help.h>
 #include <atlas/command/version.h>
+#include <../include/atlas/config/create_config.h>
 
 namespace atlas {
     //argc will be used later, do not delete!
     std::string parser(const int argc, char *argv[]) {
         if (std::string(argv[1]) == "--help" || std::string(argv[1]) == "-h") {
             atlas::help();
-            std::exit(0);
         } else if (std::string(argv[1]) == "--version" || std::string(argv[1]) == "-v") {
             atlas::version();
+        } else if (std::string(argv[1]) == "--config" || std::string(argv[1]) == "-c") {
+            atlas::create_config();
         }
 
         std::string urlInput = argv[1];

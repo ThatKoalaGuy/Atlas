@@ -51,6 +51,11 @@ namespace atlas {
             throw std::runtime_error("failed to open file for writing");
         }
 
+        //For timeouts
+        curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 10L);
+        curl_easy_setopt(curl, CURLOPT_LOW_SPEED_LIMIT, 1024L);
+        curl_easy_setopt(curl, CURLOPT_LOW_SPEED_TIME, 10L);
+
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &atlas::write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);

@@ -2,6 +2,7 @@
 #include <curl/curl.h>
 #include <atlas/parser.h>
 #include <atlas/command/help.h>
+#include <atlas/command/version.h>
 
 namespace atlas {
     //argc will be used later, do not delete!
@@ -10,9 +11,7 @@ namespace atlas {
             atlas::help();
             std::exit(0);
         } else if (std::string(argv[1]) == "--version" || std::string(argv[1]) == "-v") {
-            std::cout << "Current version: \n"
-                    "v1.0.0-alpha";
-            std::exit(0);
+            atlas::version();
         }
 
         std::string urlInput = argv[1];

@@ -3,13 +3,16 @@
 #include <curl/curl.h>
 #include <atlas/downloader.h>
 
+#include "atlas/command/help.h"
+
 int main(const int argc, char **argv) {
     std::cout << "Welcome to Atlas!" << std::endl;
     curl_global_init(CURL_GLOBAL_ALL);
 
     try {
         if (argc < 2) {
-            throw std::invalid_argument("Usage: atlas <url>");
+            atlas::help();
+            throw std::invalid_argument("No parameters provided");
         }
 
         const std::string url = atlas::parser(argc, argv);

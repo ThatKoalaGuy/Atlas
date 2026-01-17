@@ -14,6 +14,7 @@ add_library(atlas_lib
         src/downloader.cpp
         src/write_data.cpp
         src/command/help.cpp
+        src/command/version.cpp
 )
 
 target_include_directories(atlas_lib PUBLIC

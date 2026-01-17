@@ -14,5 +14,6 @@ namespace atlas {
                 "   -v --version        Show version\n"
                 "Examples: \n"
                 "    \n";
+        std::exit(0);
     }
 }

@@ -44,6 +44,8 @@ add_executable(atlas_tests
         tests/main.cpp
         tests/parser_tests.cpp
         tests/filename_from_url.cpp
+        tests/config_tests.cpp
+        tests/write_data_tests.cpp
 )
 
 # ---- CI ----

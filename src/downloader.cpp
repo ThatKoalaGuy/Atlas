@@ -53,14 +53,14 @@ namespace atlas {
                 output_dir = cfg.download_dir;
             }
         } catch (...) {
-            // No config file → fall back to executable directory
+            // No config file → fall back to the executable directory
         }
 
         if (output_dir.empty()) {
             output_dir = std::filesystem::current_path();
         }
 
-        std::filesystem::path output = output_dir / base;
+        const std::filesystem::path output = output_dir / base;
 
         std::filesystem::create_directories(output.parent_path());
 

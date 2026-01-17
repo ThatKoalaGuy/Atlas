@@ -1,10 +1,19 @@
 #include <iostream>
 #include <curl/curl.h>
 #include <atlas/parser.h>
+#include <atlas/command/help.h>
+#include <atlas/command/version.h>
 
 namespace atlas {
     //argc will be used later, do not delete!
     std::string parser(const int argc, char *argv[]) {
+        if (std::string(argv[1]) == "--help" || std::string(argv[1]) == "-h") {
+            atlas::help();
+            std::exit(0);
+        } else if (std::string(argv[1]) == "--version" || std::string(argv[1]) == "-v") {
+            atlas::version();
+        }
+
         std::string urlInput = argv[1];
         if (!urlInput.starts_with("http://") && !urlInput.starts_with("https://")) {
             urlInput = "https://" + urlInput;

@@ -52,6 +52,7 @@ namespace atlas {
         }
 
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &atlas::write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 
